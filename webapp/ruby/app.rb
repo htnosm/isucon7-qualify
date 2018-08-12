@@ -1,8 +1,8 @@
 require 'digest/sha1'
 require 'mysql2'
 require 'sinatra/base'
-require 'ddtrace'
-require 'ddtrace/contrib/sinatra/tracer'
+#require 'ddtrace'
+#require 'ddtrace/contrib/sinatra/tracer'
 
 #Datadog.configure do |c|
 #  c.use :sinatra, options
