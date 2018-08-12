@@ -4,6 +4,10 @@ require 'sinatra/base'
 require 'ddtrace'
 require 'ddtrace/contrib/sinatra/tracer'
 
+Datadog.configure do |c|
+  c.use :sinatra, options
+end
+
 class App < Sinatra::Base
   configure do
     set :session_secret, 'tonymoris'
@@ -16,10 +20,6 @@ class App < Sinatra::Base
   configure :development do
     require 'sinatra/reloader'
     register Sinatra::Reloader
-  end
-
-  Datadog.configure do |c|
-    c.use :sinatra, options
   end
 
   helpers do
