@@ -1,6 +1,8 @@
 require 'digest/sha1'
 require 'mysql2'
 require 'sinatra/base'
+require 'ddtrace'
+require 'ddtrace/contrib/sinatra/tracer'
 
 class App < Sinatra::Base
   configure do
@@ -14,6 +16,10 @@ class App < Sinatra::Base
   configure :development do
     require 'sinatra/reloader'
     register Sinatra::Reloader
+  end
+
+  Datadog.configure do |c|
+    c.use :sinatra, options
   end
 
   helpers do
