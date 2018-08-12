@@ -4,9 +4,9 @@ require 'sinatra/base'
 require 'ddtrace'
 require 'ddtrace/contrib/sinatra/tracer'
 
-Datadog.configure do |c|
-  c.use :sinatra, options
-end
+#Datadog.configure do |c|
+#  c.use :sinatra, options
+#end
 
 class App < Sinatra::Base
   configure do
